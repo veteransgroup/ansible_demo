@@ -1,0 +1,14 @@
+- name: Hello variables
+  hosts: vv
+
+  vars:
+    greetings: hello from vars
+    demo:
+        a:
+            - a: 1
+            - b: 2
+        b: test
+  tasks:
+    - name: Hello debug module
+      debug:
+        msg: '{{greetings}},{{http_port}},{{ip_addr}}'

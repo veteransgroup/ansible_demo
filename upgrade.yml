@@ -1,0 +1,30 @@
+- name: upgrade all software
+  hosts: nodes
+  become: yes
+
+  tasks:
+    # - name: update Ubuntu series packages
+    #   apt:
+    #     name: '*'
+    #     state: latest
+    #   when: ansible_facts['distribution'] != 'FreeBSD'
+
+    # - name: update FreeBSD packages
+    #   community.general.pkgng:
+    #     name: '*'
+    #     state: latest
+    #   when: ansible_facts['distribution'] == 'FreeBSD'
+
+    - name: update All packages
+      package:
+        name: '*'
+        state: latest
+      register: update_result
+    
+    - name: test command 
+      command: whoami
+      register: who
+
+    - name: display results
+      debug:
+        msg: "{{who}} on {{ ansible_distribution }}.  {{ update_result }}"

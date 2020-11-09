@@ -1,0 +1,26 @@
+- name: Hello variables
+  hosts: localhost
+
+  vars:
+    test: 
+      - rom vars
+      - great
+      - blue
+    demo:
+      - stackdriver
+      - stack
+      - sad
+  tasks:
+    - name: Hello debug module
+      debug:
+        msg: '{{item}}'
+      with_items: '{{test}}'
+    - name: again
+      debug:
+        msg: '{{test}}'
+    - name: nested
+      debug:
+        msg: '{{item[0]}},{{item[1]}}'
+      with_nested:
+        - '{{test}}'
+        - '{{demo}}' 

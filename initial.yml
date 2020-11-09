@@ -1,0 +1,9 @@
+- name: add user jeff
+  hosts: nodes
+  become: yes
+
+  tasks:
+    - name: add user jeff
+      user:
+        name: jeff
+        password: "{{'jeff123' | password_hash('sha512')}}"
