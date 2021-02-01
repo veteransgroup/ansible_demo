@@ -21,3 +21,14 @@ win1
 [srv]
 dell
 ibm
+
+[eth]
+lenovo
+surface
+minipc
+mac
+acer
+
+[cloud]
+aws-jumper
+azure-jks

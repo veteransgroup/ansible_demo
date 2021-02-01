@@ -1,5 +1,5 @@
 - name: upgrade all software
-  hosts: nodes
+  hosts: cloud
   become: yes
 
   tasks:
